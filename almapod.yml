@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: almalinux
+spec:
+  containers:
+    - name: almalinux
+      image: almalinux:latest
+      ports:
+        - containerPort: 80
+      command:
+        - sleep
+        - infinity
+

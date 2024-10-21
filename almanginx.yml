@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: almang
+  labels:
+    app: nginxalma
+spec:
+  containers:
+  - name: almang
+    image: localhost:5000/almanginx:latest
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: almanginx-service
+spec:
+  type: NodePort
+  selector:
+    app: nginxalma
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80  
+    nodePort: 30020
